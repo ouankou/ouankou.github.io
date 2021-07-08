@@ -3,7 +3,7 @@ name: Publish
 on:
   push:
     branches:
-      - master  # default branch
+      - main  # default branch
 
 jobs:
   jekyll:
@@ -21,7 +21,6 @@ jobs:
 
     # Specify the target branch
     - uses: helaili/jekyll-action@v2
-      env:
-        JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
         target_branch: 'gh-pages'
